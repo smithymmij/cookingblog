@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 text-center mt-5">
+      <h1 class="display-4">Erro 404</h1>
+      <p class="lead">Página não encontrada</p>
+      <a href="/" class="btn btn-primary">Voltar para a página inicial</a>
+      <p id="countdown" class="mt-3"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Definindo o tempo para redirecionamento em segundos
+  var countdownTime = 10;
+  
+  // Função para atualizar o contador regressivo
+  function updateCountdown() {
+    var countdownElement = document.getElementById('countdown');
+    countdownElement.textContent = 'Redirecionando em ' + countdownTime + ' segundos...';
+    countdownTime--;
+    if (countdownTime < 0) {
+      clearInterval(countdownInterval);
+      window.location.href = '/'; // Redirecionamento para a página inicial
+    }
+  }
+  
+  // Atualizar o contador inicialmente
+  updateCountdown();
+  
+  // Atualizar o contador a cada segundo
+  var countdownInterval = setInterval(updateCountdown, 1000);
+</script>
