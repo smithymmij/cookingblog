@@ -49,3 +49,23 @@ a:hover { color: #800000;}
 }
 
 footer p {text-align: center; }
+
+.d-block {width: 80vw;}
+
+
+.logo {width: 16vw;}
+
+@media only screen and (max-width: 768px) {
+    .nav-mobi {display: none;}
+  }
+
+.bg-tertiary {background-color:white; display: none;}
+
+@media only screen and (max-width: 768px) {
+    .bg-tertiary {display: block; margin-bottom: 50px; padding-top: 40px;}
+    form { width: 50vw;}
+   .home { width: 9vw;}
+   .offcanvas {max-width: 65vw;}
+   .d-block {width: 90vw;}
+  }
+  

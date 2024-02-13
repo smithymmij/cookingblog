@@ -7,47 +7,81 @@
   <title><%= typeof title != 'undefined' ? title: 'Cooking Blog - Made with Node.js' %></title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" type="image/png" href="img/cb-icon.png">
 </head>
 <body>
   
   <div class="container-xxl px-md-5 bg-white shadow-lg">
 
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        <img src="/img/logo-comidas.png" width="310" height="95" alt="Cooking Blog - Made with Node.js">
-      </a>
-
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="/about" class="nav-link px-2 link-secondary">Sobre</a></li>
-        <li><a href="/submit-recipe" class="nav-link px-2 link-secondary">Enviar</a></li>
-        <li><a href="/contact" class="nav-link px-2 link-secondary">Contato</a></li>
-      </ul>
-
-      <div class="col-md-3 text-end">
-        <form method="POST" action="/search">
-          <input type="search" name="searchTerm" class="form-control" placeholder="Procurar..." aria-label="Search">
-        </form>
+    <nav class="navbar bg-tertiary">
+      <div class="container-fluid">
+          <a href="/" class="nav-link px-2 link-secondary"><img class="home" src="/img/cb-icon.png" alt="logo"></a>
+            <div class="col-md-3 text-end">
+              <form method="POST" action="/search">
+                <input type="search" name="searchTerm" class="form-control" placeholder="Procurar..." aria-label="Search">
+              </form>
+            </div>
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">              
+                  <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+                  <li><a href="/about" class="nav-link px-2 link-secondary">Sobre</a></li>
+                  <li><a href="/submit-recipe" class="nav-link px-2 link-secondary">Enviar</a></li>
+                  <li><a href="/contact" class="nav-link px-2 link-secondary">Contato</a></li>  
+                </ul>
+              </div>
+            </div>
       </div>
-    </header>
+    </nav>
 
-    
+    <div class="nav-mobi">
+      <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+          <img class="logo" src="/img/comidas-brasileiras.png" alt="Cooking Blog - Made with Node.js">
+        </a>
+        
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+          <li><a href="/about" class="nav-link px-2 link-secondary">Sobre</a></li>
+          <li><a href="/submit-recipe" class="nav-link px-2 link-secondary">Enviar</a></li>
+          <li><a href="/contact" class="nav-link px-2 link-secondary">Contato</a></li>
+        </ul>
 
-    <main>
-      <%- body -%>
-    </main>
+        <div class="col-md-3 text-end">
+          <form method="POST" action="/search">
+            <input type="search" name="searchTerm" class="form-control" placeholder="Procurar..." aria-label="Search">
+          </form>
+        </div>
+      </header>
+    </div>
 
-    <footer class="py-5">
-     <p> &copy; <%= new Date().getFullYear(); %> Smith • Desenvolvido com Express, NodeJs & MongoDB</p>
-    </footer>
+      <main>
+        <%- body -%>
+      </main>
+
+      <footer class="py-5">
+      <p> &copy; <%= new Date().getFullYear(); %> Smith • Desenvolvido com Express, NodeJs & MongoDB</p>
+      </footer>
 
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/js/script.js"></script>
 </body>
 </html>
